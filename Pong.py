@@ -5,6 +5,7 @@ import winsound
 screen = turtle.Screen()
 screen.title("Pong By Ansh Kataria")
 screen.bgcolor("black")
+screen.bgpic("bg.gif")
 screen.setup(width=800, height=600)
 screen.tracer(0)
 
@@ -36,7 +37,7 @@ paddle_b.goto(350, 0)
 
 ball = turtle.Turtle()
 ball.speed(0)
-ball.shape("square")
+ball.shape("circle")
 ball.color("white")
 ball.penup()
 ball.dx = 0.4
@@ -50,33 +51,33 @@ pen.shape("square")
 pen.color("white")
 pen.penup()
 pen.hideturtle()
-pen.goto(0, 260)
-pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
+pen.goto(0, 225)
+pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 40, "bold"))
 
 
 # Movement control
 
 def paddle_a_up():
     y = paddle_a.ycor()
-    y += 20
+    y += 30
     paddle_a.sety(y)
 
 
 def paddle_a_down():
     y = paddle_a.ycor()
-    y -= 20
+    y -= 30
     paddle_a.sety(y)
 
 
 def paddle_b_up():
     y = paddle_b.ycor()
-    y += 20
+    y += 30
     paddle_b.sety(y)
 
 
 def paddle_b_down():
     y = paddle_b.ycor()
-    y -= 20
+    y -= 30
     paddle_b.sety(y)
 
 
@@ -112,7 +113,7 @@ while True:
     if ball.xcor() > 390:
         score_a += 1
         pen.clear()
-        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 40, "bold"))
         ball.goto(0, 0)
         ball.dx *= -1
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
@@ -120,7 +121,7 @@ while True:
     elif ball.xcor() < -390:
         score_b += 1
         pen.clear()
-        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 40, "bold"))
         ball.goto(0, 0)
         ball.dx *= -1
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
